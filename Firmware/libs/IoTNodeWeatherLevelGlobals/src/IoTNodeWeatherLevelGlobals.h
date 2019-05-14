@@ -19,7 +19,7 @@
 // #define PLATFORM_NEWHAL                     60000
 // 
 //Photon
-#if PLATFORM_ID==6 // || PLATFORM_ID==2
+#if PLATFORM_ID==6 || PLATFORM_ID==8
 #define N_SDA0 SDA
 #define N_SCL0 SCL
 #define N_D0 D2
