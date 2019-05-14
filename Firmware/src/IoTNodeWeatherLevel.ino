@@ -156,7 +156,7 @@ bool tickleWD = false;
 unsigned long timeToNextSendMS;
 
 // Change this value to force hard reset and clearing of FRAM when Flashing
-const int firstRunTest = 1122121;
+const int firstRunTest = 1122123;
 
 String deviceStatus;
 String i2cDevices;
