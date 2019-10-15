@@ -456,7 +456,7 @@ void WeatherLevel::getAndResetAllSensors()
   float windMPH = getAndResetAnemometerMPH(&gustMPH);
   sensorReadings.wind_metersph = (uint16_t) ceil(windMPH * 1609.34);
   float rainInches = getAndResetRainInches();
-  sensorReadings.rainmm = (uint16_t) ceil(rainInches * 25.4);
+  sensorReadings.rainmmx1000 = (uint16_t) ceil(rainInches * 25400);
   float windDegrees = getAndResetWindVaneDegrees();
   sensorReadings.windDegrees = (uint16_t) ceil(windDegrees);
   float airTempF = getAndResetTempF();
@@ -503,7 +503,7 @@ String WeatherLevel::sensorReadingsToCsvUS()
   ","+
   minimiseNumericString(String::format("%.1f",(((float)sensorReadings.airTempKx10-2731.5)*9.0/50.0+32.0)),1)+
   ","+
-  minimiseNumericString(String::format("%.1f",((float)sensorReadings.rainmm/25.4)),1)+
+  minimiseNumericString(String::format("%.3f",((float)sensorReadings.rainmmx1000/25400)),3)+
   ","+
   minimiseNumericString(String::format("%.2f",(float)sensorReadings.barometerhPa/338.6389),2)+
 // Not enough fields in thingspeak channel for gust
@@ -536,7 +536,7 @@ String WeatherLevel::sensorReadingsToCsvUS(sensorReadings_t readings)
   ","+
   minimiseNumericString(String::format("%.1f",(((float)readings.airTempKx10-2731.5)*9.0/50.0+32.0)),1)+
   ","+
-  minimiseNumericString(String::format("%.1f",((float)readings.rainmm/25.4)),1)+
+  minimiseNumericString(String::format("%.3f",((float)readings.rainmmx1000/25400)),3)+
   ","+
   minimiseNumericString(String::format("%.2f",(float)readings.barometerhPa/338.6389),2)+
 // Not enough fields in thingspeak for this

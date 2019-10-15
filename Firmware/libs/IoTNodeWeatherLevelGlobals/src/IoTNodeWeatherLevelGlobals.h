@@ -117,7 +117,7 @@ typedef struct // units chosen for data size and readability
     uint16_t wind_metersph; //meters per hour
     uint8_t humid; //percent
     uint16_t airTempKx10; // Temperature in deciKelvin
-    uint16_t rainmm; // millimeters
+    uint16_t rainmmx1000; // millimetersx1000 - resolution is 0.2794mm 0.011"
     float barometerhPa; // Could fit into smaller type if needed
     uint16_t gust_metersph; //meters per hour
     // Water
