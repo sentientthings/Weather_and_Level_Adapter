@@ -17,8 +17,7 @@ class ThingSpeakWebhooks
   // user-accessible "public" interface
   public:
     ThingSpeakWebhooks();
-    // Note that this function can typically only send up to 2 data points due
-    // to the 256 character size limitation of Particle.publish() messages
+    // Note the new 622 character size limitation of Particle.publish() messages
     void TSBulkWriteCSV(String channel, String api_key, String time_format, String csvData);
     boolean TSCreateChan(char const* keys[], char const* values[], int& returnIndex);
     boolean updateTSChan(char const* channel, char const* values[], char const* labels[], int& arrayIndex);

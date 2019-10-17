@@ -149,7 +149,7 @@ String data = "{\"c\":\"" + channel + "\",\"k\":\"" + api_key + "\",\"t\":\"" + 
 // }
 boolean ThingSpeakWebhooks::TSCreateChan(char const* keys[], char const* values[], int& returnIndex)
 {
-    char pub[256]; // Size limited by Particle.publish()
+    char pub[622]; // Size limited by Particle.publish()
     strcpy(pub, "{");
     boolean valid = false;
     uint8_t i=0;
@@ -212,7 +212,7 @@ boolean ThingSpeakWebhooks::TSCreateChan(char const* keys[], char const* values[
                     if (strlen(values[i])>0)
                     {
                         len = len + strlen(keys[i]) + strlen(values[i]) + 6;
-                        if (len<=256)
+                        if (len<=622)
                         {
                             strcat(pub, ",\"");
                             strcat(pub, keys[i]);
@@ -259,7 +259,7 @@ boolean ThingSpeakWebhooks::TSCreateChan(char const* keys[], char const* values[
 
 boolean ThingSpeakWebhooks::updateTSChan(char const* channel, char const* values[], char const* labels[], int& arrayIndex)
 {
-    char pub[256];
+    char pub[622];
     unsigned long startTime = millis();
     unsigned long timeOut = 13000;
     boolean valid = false;
@@ -289,7 +289,7 @@ boolean ThingSpeakWebhooks::updateTSChan(char const* channel, char const* values
                 //Serial.println(millis()-beginTime);
 
                 len = strlen(labels[i]) + strlen(values[i]) + strlen(channel) + 15;
-                if (len<=256)
+                if (len<=622)
                 {
                     strcpy(pub, "{\"n\":\"");
                     strcat(pub, labels[i]);
